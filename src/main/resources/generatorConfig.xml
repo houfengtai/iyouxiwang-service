@@ -22,7 +22,7 @@
         <!-- 必须的（1 required） -->
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.3.185:3306/youxiwang_db"
+                        connectionURL="jdbc:mysql://192.168.3.185:3306/iyouxiwangdb"
                         userId="root" password="root">
         </jdbcConnection>
 
@@ -65,7 +65,7 @@
         <!-- pojo 实体生成器 -->
         <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
         <!-- schema即为数据库名 可不写 -->
-        <table  tableName="t_account" domainObjectName="Account"
+        <table  tableName="advertiser_pay_logs" domainObjectName="AdvertiserPayLogs"
                 enableSelectByPrimaryKey="true"
                 enableInsert="true"
                 enableUpdateByPrimaryKey="true"
