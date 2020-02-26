@@ -43,7 +43,7 @@ public class GamesController extends BaseController{
         return gamesService.findGameViews(p,type,pageIndex,pageSize);
     }
 
-    @PostMapping("/browselog/{id}")
+    @GetMapping("/browselog/{id}")
     @ApiImplicitParam(name = "id", value = "游戏id", paramType = "path", dataType = "int")
     public Response<String> addBrowseLog(@PathVariable Integer id,HttpServletRequest request){
         BrowseLog browseLog = new BrowseLog();
