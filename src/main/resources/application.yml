@@ -40,8 +40,8 @@ spring:
 
 #mybatis
 mybatis:
-    mapper-locations: classpath:com/huafeng/**/**.xml
-    type-aliases-package: classpath:com.huafeng.**.domain
+    mapper-locations: classpath:com/suwen/**/**.xml
+    type-aliases-package: classpath:com.suwen.**.domain
 
 #log
 logging:
