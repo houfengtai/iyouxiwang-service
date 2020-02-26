@@ -28,10 +28,10 @@ public class GamesServiceImpl implements GamesService {
     }
 
     @Override
-    public Response<String> findGames(String keyword,Integer type,Integer page, Integer pageSize) {
-        Integer count = gamesMapper.findGamesCount(keyword,type);
+    public Response<String> findGameViews(String keyword,Integer type,Integer page, Integer pageSize) {
+        Integer count = gamesMapper.findGameViewsCount(keyword,type);
         Integer  pageNo = (page!=null && pageSize!=null)? (page - 1) * pageSize : null;
-        List<GamesView> list = gamesMapper.findGames(keyword,type,pageNo, pageSize);
+        List<GamesView> list = gamesMapper.findGameViews(keyword,type,pageNo, pageSize);
         Response res = new Response(200,"查询成功");
         res.setData(list);
         res.setPageNo(pageNo);

@@ -35,26 +35,38 @@
     from t_games
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="findGames" resultMap="GamesViewResultMap">
+  <select id="selectByStatusAndType" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from t_games
+    where end_date is not null
+    <if test="status!=null">
+      AND `status` = #{status,jdbcType=INTEGER}
+    </if>
+    <if test="type!=null">
+      AND `type` = #{type,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="findGameViews" resultMap="GamesViewResultMap">
     select
         id, game_name, game_logo, game_url, intro
     from t_games
-    where 1=1
+    where `status` = 0
     <if test="keyword!=null">
       AND game_name like #{keyword,jdbcType=VARCHAR}
     </if>
     <if test="type!=null">
-      AND game_type like #{type,jdbcType=INTEGER}
+      AND game_type = #{type,jdbcType=INTEGER}
     </if>
     <if test="pageNo!=null">
       limit ${pageNo},${pageSize}
     </if>
   </select>
-  <select id="findGamesCount" resultType="java.lang.Integer">
+  <select id="findGameViewsCount" resultType="java.lang.Integer">
     select
         count(*)
     from t_games
-    where 1=1
+    where `status` = 0
     <if test="keyword!=null">
       AND game_name like #{keyword,jdbcType=VARCHAR}
     </if>

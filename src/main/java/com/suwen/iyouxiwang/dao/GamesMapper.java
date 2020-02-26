@@ -15,12 +15,14 @@ public interface GamesMapper {
 
     Games selectByPrimaryKey(Integer id);
 
+    List<Games> selectByStatusAndType(@Param(value = "status") Integer status,@Param(value = "type") Integer type);
+
     int updateByPrimaryKeySelective(Games record);
 
-    List<GamesView> findGames(@Param(value = "keyword") String keyword,
+    List<GamesView> findGameViews(@Param(value = "keyword") String keyword,
                               @Param(value = "type") Integer type,
                               @Param(value = "pageNo")Integer pageNo,
                               @Param(value = "pageSize")Integer pageSize);
 
-    int findGamesCount(@Param(value = "keyword") String keyword,@Param(value = "type") Integer type);
+    int findGameViewsCount(@Param(value = "keyword") String keyword,@Param(value = "type") Integer type);
 }
