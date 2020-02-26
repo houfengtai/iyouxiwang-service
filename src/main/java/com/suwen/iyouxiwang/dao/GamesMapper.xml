@@ -18,6 +18,13 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="create_by" property="createBy" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap id="GamesViewResultMap" type="com.suwen.iyouxiwang.domain.GamesView" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="game_name" property="gameName" jdbcType="VARCHAR" />
+    <result column="game_logo" property="gameLogo" jdbcType="VARCHAR" />
+    <result column="game_url" property="gameUrl" jdbcType="VARCHAR" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
+  </resultMap>
   <sql id="Base_Column_List" >
     id, game_name, game_logo, game_url, intro, status, game_type, type, start_date, end_date, 
     remark, advertiser_id, seq_no, create_time, create_by
@@ -27,6 +34,33 @@
     <include refid="Base_Column_List" />
     from t_games
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="findGames" resultMap="GamesViewResultMap">
+    select
+        id, game_name, game_logo, game_url, intro
+    from t_games
+    where 1=1
+    <if test="keyword!=null">
+      AND game_name like #{keyword,jdbcType=VARCHAR}
+    </if>
+    <if test="type!=null">
+      AND game_type like #{type,jdbcType=INTEGER}
+    </if>
+    <if test="pageNo!=null">
+      limit ${pageNo},${pageSize}
+    </if>
+  </select>
+  <select id="findGamesCount" resultType="java.lang.Integer">
+    select
+        count(*)
+    from t_games
+    where 1=1
+    <if test="keyword!=null">
+      AND game_name like #{keyword,jdbcType=VARCHAR}
+    </if>
+    <if test="type!=null">
+      AND game_type = #{type,jdbcType=INTEGER}
+    </if>
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from t_games
