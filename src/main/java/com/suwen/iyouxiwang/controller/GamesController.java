@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @RestController
-@RequestMapping(value = "/iyouxiwang")
+@RequestMapping(value = "/api/index")
 @Api("首页")
 public class GamesController extends BaseController{
     @Autowired
