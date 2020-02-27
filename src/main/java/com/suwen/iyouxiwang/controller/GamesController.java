@@ -1,5 +1,6 @@
 package com.suwen.iyouxiwang.controller;
 
+import com.suwen.framework.core.commons.annotation.IgnoreSecurity;
 import com.suwen.framework.core.commons.exception.CustomException;
 import com.suwen.framework.core.commons.resp.Response;
 import com.suwen.framework.core.commons.rest.BaseController;
@@ -34,6 +35,7 @@ public class GamesController extends BaseController{
             @ApiImplicitParam(name = "pageIndex", value = "第几页", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "pageSize", value = "每页多少条", paramType = "query", dataType = "int")
     })
+    @IgnoreSecurity
     public Response<String> findGames (@RequestParam(value = "keyword", required = false) String keyword,
                                  @RequestParam(value = "type", required = false) Integer type,
                                        @RequestParam(value = "pageIndex", required = false) Integer pageIndex,
@@ -45,6 +47,7 @@ public class GamesController extends BaseController{
 
     @GetMapping("/browselog/{id}")
     @ApiImplicitParam(name = "id", value = "游戏id", paramType = "path", dataType = "int")
+    @IgnoreSecurity
     public Response<String> addBrowseLog(@PathVariable Integer id,HttpServletRequest request){
         BrowseLog browseLog = new BrowseLog();
         browseLog.setGameId(id);
