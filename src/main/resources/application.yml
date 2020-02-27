@@ -1,6 +1,6 @@
 #startup
 server:
-    port: 8106
+    port: 8107
     tomcat:
         remote_ip_header: x-forwarded-for
         protocol_header: x-forwarded-proto
@@ -9,10 +9,10 @@ server:
 #Spring
 spring:
     application:
-        name: lottery-service
+        name: iyouxiwang-service
 #profile
     profiles:
-        active: test
+        active: dev
 #datasource
     datasource:
         # druid
