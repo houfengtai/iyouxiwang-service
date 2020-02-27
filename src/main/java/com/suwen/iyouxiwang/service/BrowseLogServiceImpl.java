@@ -6,9 +6,10 @@ import com.suwen.framework.core.commons.utils.ObjectUtil;
 import com.suwen.iyouxiwang.dao.BrowseLogMapper;
 import com.suwen.iyouxiwang.domain.BrowseLog;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
+@Service
 public class BrowseLogServiceImpl implements BrowseLogService {
     @Autowired
     private BrowseLogMapper browseLogMapper;

@@ -6,9 +6,10 @@ import com.suwen.framework.core.commons.utils.ObjectUtil;
 import com.suwen.iyouxiwang.dao.AdvertisersMapper;
 import com.suwen.iyouxiwang.domain.Advertisers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
+@Service
 public class AdvertisersServiceImpl implements AdvertisersService {
     @Autowired
     private AdvertisersMapper advertisersMapper;

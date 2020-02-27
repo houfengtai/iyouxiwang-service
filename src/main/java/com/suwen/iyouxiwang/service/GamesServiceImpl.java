@@ -7,9 +7,10 @@ import com.suwen.iyouxiwang.dao.GamesMapper;
 import com.suwen.iyouxiwang.domain.Games;
 import com.suwen.iyouxiwang.domain.GamesView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class GamesServiceImpl implements GamesService {
     @Autowired
     private GamesMapper gamesMapper;
