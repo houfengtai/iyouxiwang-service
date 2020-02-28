@@ -30,6 +30,7 @@ public class GamesServiceImpl implements GamesService {
 
     @Override
     public Response<String> findGameViews(String keyword,Integer type,Integer page, Integer pageSize) {
+        if(pageSize > 50) return Response.returnData("");
         Integer count = gamesMapper.findGameViewsCount(keyword,type);
         Integer  pageNo = (page!=null && pageSize!=null)? (page - 1) * pageSize : null;
         List<GamesView> list = gamesMapper.findGameViews(keyword,type,pageNo, pageSize);

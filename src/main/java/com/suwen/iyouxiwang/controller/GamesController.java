@@ -38,8 +38,8 @@ public class GamesController extends BaseController{
     @IgnoreSecurity
     public Response<String> findGames (@RequestParam(value = "keyword", required = false) String keyword,
                                  @RequestParam(value = "type", required = false) Integer type,
-                                       @RequestParam(value = "pageIndex", required = false) Integer pageIndex,
-                                       @RequestParam(value = "pageSize", required = false) Integer pageSize
+                                       @RequestParam(value = "pageIndex", required = false, defaultValue = "1") Integer pageIndex,
+                                       @RequestParam(value = "pageSize", required = false,defaultValue = "10") Integer pageSize
                                        ) throws CustomException {
         String p = ObjectUtil.isNull(keyword)?null:"%"+keyword+"%";
         return gamesService.findGameViews(p,type,pageIndex,pageSize);
