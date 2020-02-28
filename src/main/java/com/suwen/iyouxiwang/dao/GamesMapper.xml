@@ -58,6 +58,7 @@
     <if test="type!=null">
       AND game_type = #{type,jdbcType=INTEGER}
     </if>
+    order by seq_no asc
     <if test="pageNo!=null">
       limit ${pageNo},${pageSize}
     </if>
