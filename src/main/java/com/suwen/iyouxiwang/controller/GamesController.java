@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @RestController
-@RequestMapping(value = "/api/index")
-@Api("首页")
+@RequestMapping(value = "/api/game")
+@Api("游戏")
 public class GamesController extends BaseController{
     @Autowired
     private GamesService gamesService;

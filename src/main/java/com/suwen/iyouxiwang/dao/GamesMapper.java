@@ -19,6 +19,8 @@ public interface GamesMapper {
 
     int updateByPrimaryKeySelective(Games record);
 
+    List<GamesView> findNewGameViews();
+
     List<GamesView> findGameViews(@Param(value = "keyword") String keyword,
                               @Param(value = "type") Integer type,
                               @Param(value = "pageNo")Integer pageNo,

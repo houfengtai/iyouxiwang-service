@@ -63,6 +63,14 @@
       limit ${pageNo},${pageSize}
     </if>
   </select>
+  <select id="findNewGameViews" resultMap="GamesViewResultMap">
+    select
+        id, game_name, game_logo, game_url, intro
+    from t_games
+    where `status` = 0
+    order by create_time desc
+    limit 0,10
+  </select>
   <select id="findGameViewsCount" resultType="java.lang.Integer">
     select
         count(*)

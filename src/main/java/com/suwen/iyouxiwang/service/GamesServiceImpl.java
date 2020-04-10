@@ -42,4 +42,9 @@ public class GamesServiceImpl implements GamesService {
         res.setTotal(count);
         return res;
     }
+
+    @Override
+    public Response<String> findNewGameViews() {
+        return Response.returnData(gamesMapper.findNewGameViews());
+    }
 }
