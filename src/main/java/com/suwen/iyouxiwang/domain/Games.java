@@ -17,6 +17,8 @@ public class Games {
 
     private Integer status;
 
+    private Integer columnType;
+
     private Integer gameType;
 
     private Integer type;

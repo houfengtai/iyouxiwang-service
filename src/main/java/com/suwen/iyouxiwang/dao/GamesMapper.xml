@@ -8,6 +8,7 @@
     <result column="game_url" property="gameUrl" jdbcType="VARCHAR" />
     <result column="intro" property="intro" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="column_type" property="columnType" jdbcType="INTEGER" />
     <result column="game_type" property="gameType" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="INTEGER" />
     <result column="start_date" property="startDate" jdbcType="DATE" />
@@ -26,7 +27,7 @@
     <result column="intro" property="intro" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, game_name, game_logo, game_url, intro, status, game_type, type, start_date, end_date, 
+    id, game_name, game_logo, game_url, intro, status, column_type, game_type, type, start_date, end_date,
     remark, advertiser_id, seq_no, create_time, create_by
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
@@ -108,6 +109,9 @@
       <if test="status != null" >
         status,
       </if>
+      <if test="columnType != null" >
+        column_type,
+      </if>
       <if test="gameType != null" >
         game_type,
       </if>
@@ -154,6 +158,9 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
+      </if>
+      <if test="columnType != null" >
+        #{columnType,jdbcType=INTEGER},
       </if>
       <if test="gameType != null" >
         #{gameType,jdbcType=INTEGER},
@@ -204,6 +211,9 @@
       </if>
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="columnType != null" >
+        column_type = #{columnType,jdbcType=INTEGER},
       </if>
       <if test="gameType != null" >
         game_type = #{gameType,jdbcType=INTEGER},
