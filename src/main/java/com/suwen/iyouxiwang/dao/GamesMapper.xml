@@ -42,9 +42,9 @@
     from t_games
     where status = 0 and game_type = #{gameType,jdbcType=INTEGER}
   </select>
-  <select id="selectByGameType" resultMap="BaseResultMap" >
+  <select id="selectByGameType" resultMap="GamesViewResultMap" >
     select
-    <include refid="Base_Column_List" />
+        id, game_name, game_logo, game_url, intro
     from t_games
     where status = 0 and game_type = #{gameType,jdbcType=INTEGER} limit #{start},1
   </select>

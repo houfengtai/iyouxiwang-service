@@ -6,7 +6,7 @@ import com.suwen.framework.core.commons.resp.Response;
 import com.suwen.iyouxiwang.dao.GamesMapper;
 import com.suwen.iyouxiwang.dao.HotGamesMapper;
 import com.suwen.iyouxiwang.dao.RecommendedGamesMapper;
-import com.suwen.iyouxiwang.domain.Games;
+import com.suwen.iyouxiwang.domain.GamesView;
 import com.suwen.iyouxiwang.service.GamesService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -60,7 +60,7 @@ public class HomeController {
         int qp_num = gamesMapper.selectCountByGameType(0);
         int cq_num = gamesMapper.selectCountByGameType(1);
 
-        Map<String, Games> map = new HashMap<>();
+        Map<String, GamesView> map = new HashMap<>();
         if(qp_num!=0) map.put("qp", gamesMapper.selectByGameType(0,rand.nextInt(qp_num)));
         if(cq_num!=0) map.put("cq",gamesMapper.selectByGameType(1,rand.nextInt(cq_num)));
         return Response.returnData(map);

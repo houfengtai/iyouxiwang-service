@@ -17,7 +17,7 @@ public interface GamesMapper {
 
     int selectCountByGameType(@Param(value = "gameType") Integer gameType);
 
-    Games selectByGameType(@Param(value = "gameType") Integer gameType,@Param(value = "start") Integer start);
+    GamesView selectByGameType(@Param(value = "gameType") Integer gameType,@Param(value = "start") Integer start);
 
     List<Games> selectByStatusAndType(@Param(value = "status") Integer status,@Param(value = "type") Integer type);
 
