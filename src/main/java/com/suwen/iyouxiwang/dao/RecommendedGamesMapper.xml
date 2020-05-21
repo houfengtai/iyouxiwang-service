@@ -7,13 +7,12 @@
     <result column="game_logo" property="gameLogo" jdbcType="VARCHAR" />
     <result column="game_url" property="gameUrl" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="browse_num" property="browseNum" jdbcType="INTEGER" />
     <result column="seq_no" property="seqNo" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="create_by" property="createBy" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, game_name, game_logo, game_url, remark, browse_num, seq_no, create_time, create_by
+    id, game_name, game_logo, game_url, remark, seq_no, create_time, create_by
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -49,9 +48,6 @@
       <if test="remark != null" >
         remark,
       </if>
-      <if test="browseNum != null" >
-        browse_num,
-      </if>
       <if test="seqNo != null" >
         seq_no,
       </if>
@@ -78,9 +74,6 @@
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="browseNum != null" >
-        #{browseNum,jdbcType=INTEGER},
-      </if>
       <if test="seqNo != null" >
         #{seqNo,jdbcType=INTEGER},
       </if>
@@ -106,9 +99,6 @@
       </if>
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
-      </if>
-      <if test="browseNum != null" >
-        browse_num = #{browseNum,jdbcType=INTEGER},
       </if>
       <if test="seqNo != null" >
         seq_no = #{seqNo,jdbcType=INTEGER},

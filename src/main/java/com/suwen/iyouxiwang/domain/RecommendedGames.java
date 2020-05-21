@@ -16,8 +16,6 @@ public class RecommendedGames {
 
     private String remark;
 
-    private Integer browseNum;
-
     private Integer seqNo;
 
     private Date createTime;

@@ -15,6 +15,10 @@ public interface GamesMapper {
 
     Games selectByPrimaryKey(Integer id);
 
+    int selectCountByGameType(@Param(value = "gameType") Integer gameType);
+
+    Games selectByGameType(@Param(value = "gameType") Integer gameType,@Param(value = "start") Integer start);
+
     List<Games> selectByStatusAndType(@Param(value = "status") Integer status,@Param(value = "type") Integer type);
 
     int updateByPrimaryKeySelective(Games record);

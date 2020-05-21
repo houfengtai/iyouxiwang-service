@@ -36,6 +36,18 @@
     from t_games
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectCountByGameType" resultType="java.lang.Integer" >
+    select
+    count(*)
+    from t_games
+    where status = 0 and game_type = #{gameType,jdbcType=INTEGER}
+  </select>
+  <select id="selectByGameType" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_games
+    where status = 0 and game_type = #{gameType,jdbcType=INTEGER} limit #{start},1
+  </select>
   <select id="selectByStatusAndType" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
