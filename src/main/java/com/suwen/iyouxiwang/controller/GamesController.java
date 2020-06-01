@@ -30,14 +30,16 @@ public class GamesController extends BaseController{
     @GetMapping("/games")
     @ApiOperation(value = "查询游戏列表")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "keyword", value = "关键字", paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "type", value = "查询游戏类型", paramType = "query", dataType = "int"),
+            @ApiImplicitParam(name = "c", value = "游戏大类", paramType = "query", dataType = "int"),
+            @ApiImplicitParam(name = "k", value = "关键字", paramType = "query", dataType = "String"),
+            @ApiImplicitParam(name = "t", value = "查询游戏类型", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "pageIndex", value = "第几页", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "pageSize", value = "每页多少条", paramType = "query", dataType = "int")
     })
     @IgnoreSecurity
-    public Response<String> findGames (@RequestParam(value = "keyword", required = false) String keyword,
-                                 @RequestParam(value = "type", required = false) Integer type,
+    public Response<String> findGames (@RequestParam(value = "c", required = false) Integer columnType,
+                                 @RequestParam(value = "k", required = false) String keyword,
+                                 @RequestParam(value = "t", required = false) Integer type,
                                        @RequestParam(value = "pageIndex", required = false, defaultValue = "1") Integer pageIndex,
                                        @RequestParam(value = "pageSize", required = false,defaultValue = "10") Integer pageSize
                                        ) throws CustomException {
