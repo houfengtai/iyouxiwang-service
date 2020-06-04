@@ -23,7 +23,7 @@
     id, resource_url, remark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from t_game_attachment
     where id = #{id,jdbcType=INTEGER}
