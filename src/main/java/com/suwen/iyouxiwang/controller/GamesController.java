@@ -32,7 +32,7 @@ public class GamesController extends BaseController{
     @ApiImplicitParams({
             @ApiImplicitParam(name = "c", value = "游戏大类", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "k", value = "关键字", paramType = "query", dataType = "String"),
-            @ApiImplicitParam(name = "t", value = "查询游戏类型", paramType = "query", dataType = "int"),
+            @ApiImplicitParam(name = "t", value = "游戏类型", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "pageIndex", value = "第几页", paramType = "query", dataType = "int"),
             @ApiImplicitParam(name = "pageSize", value = "每页多少条", paramType = "query", dataType = "int")
     })
