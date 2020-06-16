@@ -44,7 +44,7 @@ public class GamesController extends BaseController{
                                        @RequestParam(value = "pageSize", required = false,defaultValue = "10") Integer pageSize
                                        ) throws CustomException {
         String p = ObjectUtil.isNull(keyword)?null:"%"+keyword+"%";
-        return gamesService.findGameViews(p,type,pageIndex,pageSize);
+        return gamesService.findGameViews(p,type,columnType,pageIndex,pageSize);
     }
 
     @GetMapping("/browselog/{id}")

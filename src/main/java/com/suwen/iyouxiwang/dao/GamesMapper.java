@@ -27,8 +27,9 @@ public interface GamesMapper {
 
     List<GamesView> findGameViews(@Param(value = "keyword") String keyword,
                               @Param(value = "type") Integer type,
+                              @Param(value = "columnType") Integer columnType,
                               @Param(value = "pageNo")Integer pageNo,
                               @Param(value = "pageSize")Integer pageSize);
 
-    int findGameViewsCount(@Param(value = "keyword") String keyword,@Param(value = "type") Integer type);
+    int findGameViewsCount(@Param(value = "keyword") String keyword,@Param(value = "type") Integer type,@Param(value = "columnType") Integer columnType);
 }
