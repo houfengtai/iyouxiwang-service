@@ -54,7 +54,8 @@ public class GamesController extends BaseController{
         BrowseLog browseLog = new BrowseLog();
         browseLog.setGameId(id);
         browseLog.setCreateDate(new Date());
-        browseLog.setBrowseIp(getIpFromRequest(request));
+        //browseLog.setBrowseIp(getIpFromRequest(request));
+        browseLog.setBrowseIp(request.getHeader("X-real-ip"));
         return browseLogService.saveBrowseLog(browseLog);
     }
 }
